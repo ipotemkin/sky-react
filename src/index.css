@@ -25,3 +25,7 @@ code {
   color: white;
   font-weight: 600;
 }
+
+.input-number {
+  width: 40px;
+}
