@@ -25,12 +25,8 @@ export default class ReacTimer extends React.Component {
         clearInterval(this.timer)
     }
 
-    handleStart = () => {
-        this.setState({ isCounting: true })
-    }
-
-    handleStop = () => {
-        this.setState({ isCounting: false })
+    handleToggle = () => {
+        this.setState(prevState => ({ isCounting: !prevState.isCounting}))
     }
 
     handleReset = () => {
@@ -39,17 +35,14 @@ export default class ReacTimer extends React.Component {
 
     render() {
         const { count, isCounting } = this.state
+        const btnName = isCounting ? 'Stop' : 'Start'
         return (
             <div className="ReacTimer">
                 <h1>React Timer</h1>
                 <h3>{count}</h3>
-                {!isCounting ? (
-                    <button type="button" onClick={this.handleStart}>Start</button>
-                ) : (
-                    <button type="button" onClick={this.handleStop}>Stop</button>
-                )}
+                    <button type="button" onClick={this.handleToggle}>{btnName}</button>
                 <button type="button" onClick={this.handleReset}>Reset</button>
             </div>
-        );
+        )
     }
 }
