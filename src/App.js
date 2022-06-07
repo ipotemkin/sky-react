@@ -2,6 +2,7 @@ import './App.css'
 // import PomodoroTracker from './components/PomodoroTracker'
 // import Clock from './components/Clock'
 import MinMaxFn from './components/MinMaxFn'
+import ParagraphBtn from './components/ParagraphBtn'
 // import ReacTimer from './components/ReacTimer'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Clock />
       <hr />
       <PomodoroTracker /> */}
+      <ParagraphBtn />
     </div>
   )
 }
