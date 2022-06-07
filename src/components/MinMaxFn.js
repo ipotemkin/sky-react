@@ -23,6 +23,8 @@ export default function minMaxFn({min, max}) {
 
   return (
     <div>
+      <h1>Task #3: MinMaxFn</h1>
+      
       <h2>Counter 1</h2>
       <button className="btn" type="button" onClick={decr}>-</button>
       <span> { curCount } </span>

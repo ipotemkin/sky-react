@@ -29,3 +29,9 @@ code {
 .input-number {
   width: 40px;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
