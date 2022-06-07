@@ -19,6 +19,11 @@ Class components. MinMax
 Components lifecycle. ReacTimer, Clock, Pomodoro Tracker
 
 
+## Homework 5
+
+Functional components. Hiding a paragraph, Two squares, MinMaxFn
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
