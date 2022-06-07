@@ -14,6 +14,11 @@ Added Book, updated App
 Class components. MinMax
 
 
+## Homework 4
+
+Components lifecycle. ReacTimer, Clock, Pomodoro Tracker
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

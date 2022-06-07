@@ -38,7 +38,7 @@ export default class ReacTimer extends React.Component {
         const btnName = isCounting ? 'Stop' : 'Start'
         return (
             <div className="ReacTimer">
-                <h1>React Timer</h1>
+                <h1>Task #1: React Timer</h1>
                 <h3>{count}</h3>
                     <button type="button" onClick={this.handleToggle}>{btnName}</button>
                 <button type="button" onClick={this.handleReset}>Reset</button>

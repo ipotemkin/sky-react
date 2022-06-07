@@ -58,7 +58,7 @@ export default class PomodoroTracker extends React.Component {
         const { time } = this.state
         return (
             <div className="Clock">
-                <h1>Pomodoro Tracker</h1>
+                <h1>Task #3: Pomodoro Tracker</h1>
                 <h2>{sec2MinSec(time)}</h2>
                 
                 <button type="button" onClick={this.handleWorkTime} disabled={this.disabled()}>
