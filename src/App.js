@@ -1,10 +1,7 @@
 import './App.css'
-// import PomodoroTracker from './components/PomodoroTracker'
-// import Clock from './components/Clock'
 import MinMaxFn from './components/MinMaxFn'
 import ParagraphBtn from './components/ParagraphBtn'
-import Squares from './components/Squares'
-// import ReacTimer from './components/ReacTimer'
+import { Squares, Squares2 } from './components/Squares'
 
 function App() {
   return (
@@ -12,6 +9,8 @@ function App() {
       <ParagraphBtn />
       <hr />
       <Squares />
+      <hr />
+      <Squares2 />
       <hr />
       <MinMaxFn min={5} max={20}/>      
       </div>

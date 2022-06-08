@@ -15,7 +15,7 @@ function Square({color, size=100, onClick = () => {}, visible=true, cls=''}) {
   return <div className={`square ${cls}`} style={style} onClick={onClick}/>
 }
 
-export default function Squares() {
+export function Squares() {
   const [status, setStatus] = useState(true)
 
   const click = () => {
@@ -32,7 +32,20 @@ export default function Squares() {
             <Square color='red' cls="el-3" visible={!status} onClick={click}/>
         </div>
       </div>
+  </div>
+  )
+}
 
+
+export function Squares2() {
+  const [status, setStatus] = useState(true)
+
+  const click = () => {
+    setStatus(!status)
+  }
+
+  return (
+    <div>
       <h1>Task #2.1: Two squares with a pure div</h1>
       <div className="center">
         <div className="container">
@@ -41,7 +54,6 @@ export default function Squares() {
             <div className="square el-3" style={{backgroundColor: 'red', display: !status ? 'block' : 'none'}} onClick={click}/>
         </div>
       </div>
-
   </div>
   )
 }
