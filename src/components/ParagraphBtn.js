@@ -8,7 +8,7 @@ export default function ParagraphBtn() {
     <div>
       <h1>Task #1: Hiding a paragraph</h1>
       <button type="button" onClick={() => {setIsShown(!isShown)}}>{isShown ? "Скрыть" : "Показать"}</button>
-      <p>{isShown ? text : ""}</p>        
+      {isShown && <p>{text}</p>}
   </div>
   )
 }
