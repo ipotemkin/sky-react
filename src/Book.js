@@ -1,9 +1,9 @@
-function Book(props) {
+function Book({name, year, price}) {
   return (
     <div>
-      <h2>{props.name}</h2>
-      <p>{props.year}</p>
-      <p>{props.price}</p>
+      <h2>{name}</h2>
+      <p>{year}</p>
+      <p>{price}</p>
     </div>
   )
 }
