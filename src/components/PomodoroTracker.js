@@ -6,7 +6,7 @@ function zeroPrefix(value) {
     return res.length < 2 ? `0${res}` : res
 } 
 
-function sec2MinSec(seconds) {
+function secToMinSec(seconds) {
     const sec = seconds % 60
     const minutes = (seconds - sec) / 60
     return `${zeroPrefix(minutes)}:${zeroPrefix(sec)}`
@@ -59,7 +59,7 @@ export default class PomodoroTracker extends React.Component {
         return (
             <div className="Clock">
                 <h1>Task #3: Pomodoro Tracker</h1>
-                <h2>{sec2MinSec(time)}</h2>
+                <h2>{secToMinSec(time)}</h2>
                 
                 <button type="button" onClick={this.handleWorkTime} disabled={this.disabled()}>
                     Work Time</button>
