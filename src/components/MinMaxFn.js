@@ -1,36 +1,23 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
-export default function minMaxFn({min, max}) {
-  const [curCount, setCurCount] = useState(min)
+export default function minMaxFn({ min=1, max, current, onChange={} }) {
+  const [curCount, setCurCount] = useState(current)
+
+  useEffect(
+    () => {onChange(curCount)},
+    [curCount]
+  )
   
-  const incr = () => {
-    if (curCount < max) setCurCount(curCount + 1)
-  }
+  const incr = () => curCount < max && setCurCount(curCount + 1)
 
-  const decr = () => {
-    if (curCount > min) setCurCount(curCount - 1)
-  }
+  const decr = () => curCount > min && setCurCount(curCount - 1)
 
-  const validate = (value) => {
-    if (!+value || +value < min) return min
-    if (+value > max) return max
-    return +value
-  }
-  
-  const onChangeCount = (event) => {
-    setCurCount(validate(event.target.value))
-  }
+  const validate = value => Math.min(max, Math.max(min, Number(value) || min ))
+    
+  const onChangeCount = event => setCurCount(validate(event.target.value))
 
   return (
     <div>
-      <h1>Task #3: MinMaxFn</h1>
-      
-      <h2>Counter 1</h2>
-      <button className="btn" type="button" onClick={decr}>-</button>
-      <span> { curCount } </span>
-      <button className="btn" type="button" onClick={incr}>+</button>
-      
-      <h2>Counter 2</h2>
       <button className="btn" type="button" onClick={decr}>-</button>
       <input type="text"
         value={ curCount }
