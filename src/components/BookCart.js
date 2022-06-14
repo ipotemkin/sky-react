@@ -62,7 +62,7 @@ function BookCart() {
 
   return (
     <div>
-      <h1>books list</h1>
+      <h1>Books List</h1>
       <hr />
       <table>
         <tbody>
@@ -82,14 +82,11 @@ function BookCart() {
                 <MinMaxFn
                   max={book.rest}
                   current={book.quantity}
-                  onChange={quantity => {
-                    setQuatity(book.id, quantity)
-                    // console.log(quantity)
-                }}
+                  onChange={quantity => setQuatity(book.id, quantity)}
                 />
               </td>
               <td>{ book.quantity * book.price }</td>
-              <td><button type="button" onClick={() => removeBook(book.id)}>Удалить</button></td>
+              <td><button className="btn" type="button" onClick={() => removeBook(book.id)}>Удалить</button></td>
             </tr>
           ))}
         </tbody>

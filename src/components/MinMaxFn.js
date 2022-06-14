@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 
 export default function minMaxFn({ min=1, max, current, onChange={} }) {
-  const [curCount, setCurCount] = useState(current)
+  const validate = value => Math.min(max, Math.max(min, Number(value) || min ))
+  
+  const [curCount, setCurCount] = useState(validate(current))
 
   useEffect(
     () => {onChange(curCount)},
@@ -11,8 +13,6 @@ export default function minMaxFn({ min=1, max, current, onChange={} }) {
   const incr = () => curCount < max && setCurCount(curCount + 1)
 
   const decr = () => curCount > min && setCurCount(curCount - 1)
-
-  const validate = value => Math.min(max, Math.max(min, Number(value) || min ))
     
   const onChangeCount = event => setCurCount(validate(event.target.value))
 

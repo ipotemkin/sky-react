@@ -8,13 +8,6 @@ function App() {
   return (
     <div className="App">
       <BookCart />
-      {/* <ParagraphBtn />
-      <hr />
-      <Squares />
-      <hr />
-      <Squares2 />
-      <hr />
-      <MinMaxFn min={5} max={20}/>       */}
     </div>
   )
 }
