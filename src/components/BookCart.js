@@ -49,6 +49,9 @@ function BookCart() {
       books.map((book) => (book.id !== id ? book : { ...book, quantity }))
     )
   }
+
+  const removeBook = (id) => setBooks(books.filter(item => item.id !== id))
+
   return (
     <div>
       <h1>books list</h1>
@@ -77,6 +80,7 @@ function BookCart() {
                 />
               </td>
               <td>{ book.quantity * book.price }</td>
+              <td><button type="button" onClick={() => removeBook(book.id)}>Удалить</button></td>
             </tr>
           ))}
         </tbody>
