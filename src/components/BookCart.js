@@ -52,9 +52,18 @@ function BookCart() {
 
   const removeBook = (id) => setBooks(books.filter(item => item.id !== id))
 
+  const calcTotal = () => {
+    let total = 0
+    books.forEach(element => {
+        total += element.price * element.quantity
+    })
+    return total
+  }
+
   return (
     <div>
       <h1>books list</h1>
+      <hr />
       <table>
         <tbody>
           <tr>
@@ -85,6 +94,8 @@ function BookCart() {
           ))}
         </tbody>
       </table>
+      <hr />
+      <p><b>Grand total: {calcTotal()}</b></p>
     </div>
   )
 }
