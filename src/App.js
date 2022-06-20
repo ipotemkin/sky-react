@@ -1,19 +1,29 @@
 import './App.css'
-import MinMaxFn from './components/MinMaxFn'
-import ParagraphBtn from './components/ParagraphBtn'
-import { Squares, Squares2 } from './components/Squares'
+import BookCart from './components/BookCart'
+import LoginPass from './components/LoginPass'
+// import MinMaxFn from './components/MinMaxFn'
+// import ParagraphBtn from './components/ParagraphBtn'
+// import { Squares, Squares2 } from './components/Squares'
 
 function App() {
   return (
     <div className="App">
-      <ParagraphBtn />
-      <hr />
-      <Squares />
-      <hr />
-      <Squares2 />
-      <hr />
-      <MinMaxFn min={5} max={20}/>      
-      </div>
+      <h2>Task #1</h2><br />
+      <BookCart />
+      
+      <br />
+      <h2>Task #2</h2><br />
+      <LoginPass
+        placeholder="Login"
+        required
+      />
+      <br />
+      <LoginPass
+        fieldType='password'
+        placeholder="Password"
+        required
+      />
+    </div>
   )
 }
 
