@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
+import * as React from 'react'
 import { useState } from 'react'
 import MinMaxFn from './MinMaxFn'
+
+import "../index.css"
 
 function booksStub() {
   return [
@@ -41,6 +44,12 @@ function booksStub() {
     },
   ]
 }
+
+function formatAmount(value) {
+  const formatter = new Intl.NumberFormat('ru')
+  return formatter.format(value) 
+}
+
 function BookCart() {
   const [books, setBooks] = useState(booksStub())
 
@@ -72,12 +81,13 @@ function BookCart() {
             <th>Price</th>
             <th>Quantity</th>
             <th>Total</th>
+            <th>Delete</th>
           </tr>
           {books.map((book, i) => (
             <tr key={book.id}>
               <td>{i + 1} </td>
-              <td>{book.title} </td>
-              <td>{book.price} </td>
+              <td className="pl-10 pr-10 left">{book.title} </td>
+              <td className="pl-10 pr-10 right">{formatAmount(book.price)} </td>
               <td>
                 <MinMaxFn
                   max={book.rest}
@@ -85,14 +95,14 @@ function BookCart() {
                   onChange={quantity => setQuatity(book.id, quantity)}
                 />
               </td>
-              <td>{ book.quantity * book.price }</td>
+              <td className="pl-10 pr-10 right">{ formatAmount(book.quantity * book.price) }</td>
               <td><button className="btn" type="button" onClick={() => removeBook(book.id)}>Удалить</button></td>
             </tr>
           ))}
         </tbody>
       </table>
       <hr />
-      <p><b>Grand total: {calcTotal()}</b></p>
+      <p><b>Grand total: {formatAmount(calcTotal())}</b></p>
     </div>
   )
 }

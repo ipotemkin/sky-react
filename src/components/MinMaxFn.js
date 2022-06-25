@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
+import propTypes from 'prop-types'
 
-export default function minMaxFn({ min=1, max, current, onChange={} }) {
+
+export default function MinMaxFn({ min, max, current, onChange }) {
   const validate = value => Math.min(max, Math.max(min, Number(value) || min ))
   
   const [curCount, setCurCount] = useState(validate(current))
@@ -27,4 +29,16 @@ export default function minMaxFn({ min=1, max, current, onChange={} }) {
       <button className="btn" type="button" onClick={incr}>+</button>
     </div>
   )
+}
+
+MinMaxFn.propTypes = {
+  min: propTypes.number,
+  max: propTypes.number.isRequired,
+  current: propTypes.number.isRequired,
+  onChange: propTypes.func
+}
+
+MinMaxFn.defaultProps = {
+  min: 1,
+  onChange: {}
 }
