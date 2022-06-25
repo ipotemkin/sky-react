@@ -87,3 +87,22 @@ code {
 .right {
   text-align: right;
 }
+
+.number-generator-board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.cell {
+  width: 80px;
+  height: 80px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 0.5px solid white;
+
+  color: white;
+}
