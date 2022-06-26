@@ -11,6 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: whitesmoke;
 }
 
 code {
@@ -36,6 +37,18 @@ code {
   
   color: white;
   font-weight: 600;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.primary {
+  background-color: green;
+}
+
+.danger {
+  background-color: orangered;
 }
 
 .input-number {
@@ -105,4 +118,47 @@ code {
   border: 0.5px solid white;
 
   color: white;
+}
+
+.book-card {
+  width: 240px;
+  height: 220px;
+  padding: 12px;
+  padding-top: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  
+  border: 1px solid green;
+  border-radius: 10px;
+
+  background-color: white;
+}
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* gap: 16px; */
+}
+
+.small {
+  font-size: 0.6rem;
+}
+
+.start {
+  align-self: start;
+}
+
+.end {
+  align-self: end;
+}
+
+.order {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }

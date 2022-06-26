@@ -1,10 +1,10 @@
 import './App.css'
-import NumberGenerator from './components/NumberGenerator'
+import Order from './components/Order'
 
 function App() {
   return (
     <div className="App">
-      <NumberGenerator start={1} end={32}/>
+      <Order />
     </div>
   )
 }
