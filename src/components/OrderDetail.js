@@ -9,7 +9,7 @@ import '../index.css'
 
 
 export default function OrderDetail({ title, price, rest, quantity, onChange }) {
-  const min = 1
+  const min = 0
   const validate = value => Math.min(rest, Math.max(min, Number(value) || min ))
   const [curCount, setCurCount] = useState(validate(quantity))
 
