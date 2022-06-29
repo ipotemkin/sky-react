@@ -1,11 +1,12 @@
 import React from "react"
+import propTypes from 'prop-types'
 
-class MinMax extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { curCount: props.min }
-    this.min = props.min
-    this.max = props.max
+export default class MinMax extends React.Component {
+  constructor({min, max}) {
+    super({ min, max })
+    this.state = { curCount: min }
+    this.min = min
+    this.max = max
   }
   
   incr = () => {
@@ -53,4 +54,12 @@ class MinMax extends React.Component {
   }
 }
 
-export default MinMax
+MinMax.propTypes = {
+  min: propTypes.number,
+  max: propTypes.number
+}
+
+MinMax.defaultProps = {
+  min: 0,
+  max: 10
+}

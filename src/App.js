@@ -1,10 +1,12 @@
 import './App.css'
-import Order from './components/Order'
+import MinMax from './components/MinMax'
+// import Order from './components/Order'
 
 function App() {
   return (
     <div className="App">
-      <Order />
+      {/* <MinMax min={0} max={10} /> */}
+      <MinMax />
     </div>
   )
 }
