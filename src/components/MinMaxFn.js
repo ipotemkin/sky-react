@@ -40,5 +40,5 @@ MinMaxFn.propTypes = {
 
 MinMaxFn.defaultProps = {
   min: 1,
-  onChange: {}
+  onChange: () => {}
 }
