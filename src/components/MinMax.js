@@ -1,8 +1,9 @@
 import React from "react"
 import propTypes from 'prop-types'
+import '../index.css'
 
 export default class MinMax extends React.Component {
-  constructor({min, max}) {
+  constructor({ min, max }) {
     super({ min, max })
     this.state = { curCount: min }
     this.min = min
@@ -36,17 +37,13 @@ export default class MinMax extends React.Component {
     
     return (
       <div>
-        <h2>Counter 1</h2>
-        <button className="btn" type="button" onClick={this.decr}>-</button>
-        <span> { curCount } </span>
-        <button className="btn" type="button" onClick={this.incr}>+</button>
-        
-        <h2>Counter 2</h2>
         <button className="btn" type="button" onClick={this.decr}>-</button>
         <input type="text"
           value={ curCount }
-          onChange={this.onChangeCount}
-          className="input-number"
+          onChange={ e => this.setState({ curCount: e.target.value.replace(/\D/gi, '') }) }
+          onBlur={this.onChangeCount}
+          onKeyDown={ e => { if (e.code === 'Enter') this.onChangeCount(e) } }
+          className="input-number right"
         />
         <button className="btn" type="button" onClick={this.incr}>+</button>
       </div>

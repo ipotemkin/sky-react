@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       {/* <MinMax min={0} max={10} /> */}
-      <MinMax />
+      <MinMax max={20} />
     </div>
   )
 }
