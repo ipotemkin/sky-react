@@ -3,21 +3,21 @@ import propTypes from 'prop-types'
 import '../index.css'
 
 export default class MinMax extends React.Component {
-  constructor({ min, max }) {
-    super({ min, max })
-    this.state = { curCount: min }
-    this.min = min
-    this.max = max
+  constructor( props ) {
+    super( props )
+    this.state = { curCount: props.min }
+    this.min = props.min
+    this.max = props.max
   }
   
   incr = () => {
     if (this.state.curCount < this.max) 
-    this.setState((prevState) => ({curCount: prevState.curCount + 1}))
+    this.setState(prevState => ({curCount: prevState.curCount + 1}))
   }
 
   decr = () => {
     if (this.state.curCount > this.min)
-      this.setState((prevState) => ({curCount: prevState.curCount - 1}))
+      this.setState(prevState => ({curCount: prevState.curCount - 1}))
   }
 
   validate = (value) => {
