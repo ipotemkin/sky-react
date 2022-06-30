@@ -2,7 +2,13 @@
 import { useState } from "react"
 import propTypes from 'prop-types'
 
-export default function LoginPass({ required, placeholder, fieldType, validator, defaultErrorText }) {
+export default function SmartInput({ 
+  required,  // if the field is required
+  placeholder,  // placeholder text
+  fieldType,  // field type, e.g. 'text', 'password', etc.
+  validator,  // a function to validate the input value
+  defaultErrorText  // default error message shown when a required field is empty
+}) {
   const [error, setError] = useState(false)
   const [fieldValue, setFieldValue] = useState('')
   const [errorText, setErrorText] = useState(defaultErrorText)
@@ -43,7 +49,8 @@ export default function LoginPass({ required, placeholder, fieldType, validator,
   )
 }
 
-LoginPass.propTypes = {
+// validator should return a string with an error message or an empty string if validated
+SmartInput.propTypes = {
   required: propTypes.bool,
   placeholder: propTypes.string,
   fieldType: propTypes.string,
@@ -51,7 +58,7 @@ LoginPass.propTypes = {
   defaultErrorText: propTypes.string
 }
 
-LoginPass.defaultProps = {
+SmartInput.defaultProps = {
   required: false,
   placeholder: '',
   fieldType: 'text',
