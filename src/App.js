@@ -13,7 +13,7 @@ export default function App() {
       <br />
       
       <h2>Задача 2</h2>
-      <p>Выберите абзац:</p>
+      <p>Выберите загадку:</p>
       <br />
       <FunnySelect />
       <br />

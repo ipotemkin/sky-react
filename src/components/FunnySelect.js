@@ -1,27 +1,35 @@
 import { useState } from "react"
 
+import '../index.css'
+
 export default function FunnySelect() {
   const data = [
-    { id: 1, title: 'Абзац 1', text: 'Text1' },
-    { id: 2, title: 'Абзац 2', text: 'Text2' },
-    { id: 3, title: 'Абзац 3', text: 'Text3' },
+    { id: 1, title: 'Загадка 1', text: 'Зимой и летом одним цветом', answer: 'ель' },
+    { id: 2, title: 'Загадка 2', text: 'В лесу без огня котел кипит', answer: 'муравейник' },
+    { id: 3, title: 'Загадка 3', text: 'На ямке, ямке сто ямок с ямкой', answer: 'напёрсток' },
   ]
 
   const [state, setState] = useState(data[0].id)
+  const [answer, setAnswer] = useState(false)
 
-  function getText(id) {
-    // вариант с filter
-    // return data.filter(item => (item.id === +id))[0].text
+  // варинт с индексом списка
+  const getText = id => data[Number(id)-1].text
     
-    // варинт с индексом списка
-    return data[Number(id)-1].text
-  }
+  // вариант с filter
+  // const getText = id => data.filter(item => (item.id === +id))[0].text
+    
+
+  const getAnswer = id => <span>({data[Number(id)-1].answer})</span>
   
   return (
     <div>
       <select 
         value={state}
-        onChange={e => setState(e.target.value)}
+        onChange={e => {
+          setState(e.target.value)
+          setAnswer(false)
+          }
+        }
       >
         {data.map(item => (
           <option  value={item.id} key={item.id}>
@@ -31,7 +39,15 @@ export default function FunnySelect() {
       </select>
       <br />
       <br />
-      <p>{getText(state)}</p>
+      <p>{getText(state)} { answer && getAnswer(state) }</p>
+      <br />
+      <button 
+        className="btn primary small"
+        type="button"
+        onClick={() => setAnswer(!answer)}
+      >
+        {answer && "Скрыть ответ" || "Показать ответ"}
+      </button>
     </div>
   )
 }
