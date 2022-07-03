@@ -1,12 +1,36 @@
 import './App.css'
-import Order from './components/Order'
+import FunnySelect from './components/FunnySelect'
+import SmartInput from './components/SmartInput'
+import MinMax from './components/MinMax'
+import { validatorEmail, validatorPassword } from './Utils'
 
-function App() {
+
+export default function App() {
   return (
     <div className="App">
-      <Order />
+      <h2>Задача 1</h2>
+      <MinMax />
+      <br />
+      
+      <h2>Задача 2</h2>
+      <p>Выберите загадку:</p>
+      <br />
+      <FunnySelect />
+      <br />
+      
+      <h2>Задача 3</h2>
+      <p>Login:</p>
+      <SmartInput
+        required
+        validator={validatorEmail}
+      />
+      <br />
+      <p>Password:</p>
+      <SmartInput
+        required
+        fieldType='password'
+        validator={validatorPassword}
+      />
     </div>
   )
 }
-
-export default App

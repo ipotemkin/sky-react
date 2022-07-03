@@ -1,8 +1,10 @@
 import React from "react"
+import propTypes from 'prop-types'
+import '../index.css'
 
-class MinMax extends React.Component {
-  constructor(props) {
-    super(props)
+export default class MinMax extends React.Component {
+  constructor( props ) {
+    super( props )
     this.state = { curCount: props.min }
     this.min = props.min
     this.max = props.max
@@ -10,12 +12,12 @@ class MinMax extends React.Component {
   
   incr = () => {
     if (this.state.curCount < this.max) 
-    this.setState((prevState) => ({curCount: prevState.curCount + 1}))
+    this.setState(prevState => ({curCount: prevState.curCount + 1}))
   }
 
   decr = () => {
     if (this.state.curCount > this.min)
-      this.setState((prevState) => ({curCount: prevState.curCount - 1}))
+      this.setState(prevState => ({curCount: prevState.curCount - 1}))
   }
 
   validate = (value) => {
@@ -35,17 +37,13 @@ class MinMax extends React.Component {
     
     return (
       <div>
-        <h2>Counter 1</h2>
-        <button className="btn" type="button" onClick={this.decr}>-</button>
-        <span> { curCount } </span>
-        <button className="btn" type="button" onClick={this.incr}>+</button>
-        
-        <h2>Counter 2</h2>
         <button className="btn" type="button" onClick={this.decr}>-</button>
         <input type="text"
           value={ curCount }
-          onChange={this.onChangeCount}
-          className="input-number"
+          onChange={ e => this.setState({ curCount: e.target.value.replace(/\D/gi, '') }) }
+          onBlur={this.onChangeCount}
+          onKeyDown={ e => { if (e.code === 'Enter') this.onChangeCount(e) } }
+          className="input-number right"
         />
         <button className="btn" type="button" onClick={this.incr}>+</button>
       </div>
@@ -53,4 +51,12 @@ class MinMax extends React.Component {
   }
 }
 
-export default MinMax
+MinMax.propTypes = {
+  min: propTypes.number,
+  max: propTypes.number
+}
+
+MinMax.defaultProps = {
+  min: 0,
+  max: 10
+}
