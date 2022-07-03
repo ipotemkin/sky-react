@@ -1,14 +1,17 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+
 import './App.css'
-import FunnySelect from './components/FunnySelect'
-import SmartInput from './components/SmartInput'
-import MinMax from './components/MinMax'
-import { validatorEmail, validatorPassword } from './Utils'
+// import FunnySelect from './components/FunnySelect'
+// import SmartInput from './components/SmartInput'
+// import MinMax from './components/MinMax'
+// import { validatorEmail, validatorPassword } from './Utils'
+import LoginPassword from './components/LoginPassword'
 
 
 export default function App() {
   return (
     <div className="App">
-      <h2>Задача 1</h2>
+      {/* <h2>Задача 1</h2>
       <MinMax />
       <br />
       
@@ -16,21 +19,11 @@ export default function App() {
       <p>Выберите загадку:</p>
       <br />
       <FunnySelect />
-      <br />
+      <br /> */}
       
-      <h2>Задача 3</h2>
-      <p>Login:</p>
-      <SmartInput
-        required
-        validator={validatorEmail}
-      />
+      <h2>Задача 1</h2>
       <br />
-      <p>Password:</p>
-      <SmartInput
-        required
-        fieldType='password'
-        validator={validatorPassword}
-      />
+      <LoginPassword />
     </div>
   )
 }
