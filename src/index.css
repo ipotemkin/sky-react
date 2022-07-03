@@ -1,3 +1,8 @@
+:root {
+  --color-card-width: 100px;
+  --gap-value: 12px;
+}
+
 * {
   font-size: 24px;
   padding: 0;
@@ -50,6 +55,10 @@ code {
 
 .danger {
   background-color: orangered;
+}
+
+.info {
+  background-color: #2B65EC;
 }
 
 .input-number {
@@ -162,4 +171,45 @@ code {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.hex-colors {
+  max-width: calc( (var(--color-card-width) + var(--gap-value)) * 7 );
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hex-colors__heading {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+
+.colors-board {
+  width: 100%;
+  padding: 12px;
+  
+  display: flex;
+  justify-content: space-between;
+
+  gap: var(--gap-value);
+  flex-wrap: wrap;
+}
+
+.color-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  
+  width: var(--color-card-width);
+  height: var(--color-card-width);
+  
+  border-radius: 5px;
+  font-size: 0.6rem;
+  color: white;
 }

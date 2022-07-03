@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-
 import { useEffect, useState } from "react"
 import propTypes from 'prop-types'
 
