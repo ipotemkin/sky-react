@@ -9,7 +9,7 @@ export default function ColorCard({ hexColor }) {
       style={{backgroundColor: String(hexColor)}}
     >
       {hexColor}
-      <img src="../icons8-shopping-bag-24.png" alt="shopping cart"
+      <img src="/icons8-shopping-bag-24.png" alt="shopping cart"
         style={{ width: 20 }}  
       />
     </div>

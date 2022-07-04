@@ -6,7 +6,7 @@ export default function ColorsBoard({ colors }) {
         
     return (
         <div className="colors-board">
-            {colors.map((color, i) => <ColorCard hexColor={color} key={color + String(i)}/>)}  
+            {colors.map((color) => <ColorCard hexColor={color} key={crypto.randomUUID()}/>)}  
         </div>
     )
 }
