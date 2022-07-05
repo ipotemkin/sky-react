@@ -52,7 +52,9 @@ export default function SmartInput({
       <input
         ref={reff}
         type={fieldType}
-        value = {inputValue === undefined ? fieldValue : inputValue}
+        // value = {inputValue === undefined ? fieldValue : inputValue}
+        // value = {Boolean(inputValue) ? inputValue : fieldValue}
+        value = {inputValue || fieldValue}
         placeholder={placeholder}
         // onBlur={checkInput}  // если хотим проверку ввода при уходе фокуса с инпута
         onChange={handleChange}
