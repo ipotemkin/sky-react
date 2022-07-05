@@ -1,47 +1,62 @@
-/* eslint-disable no-unused-vars */
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import propTypes from 'prop-types'
 
 export default function SmartInput({ 
-  required,  // if the field is required
-  placeholder,  // placeholder text
-  fieldType,  // field type, e.g. 'text', 'password', etc.
-  validator,  // a function to validate the input value
-  defaultErrorText  // default error message shown when a required field is empty
+  required,           // if the field is required
+  placeholder,        // placeholder text
+  fieldType,          // field type, e.g. 'text', 'password', etc.
+  validator,          // a function to validate the input value
+  defaultErrorText,   // default error message shown when a required field is empty
+  onChangeHandler,    // define to controll a StartInput value change
+  inputValue,         // define to control the SmartInput value
+  reff,               // to throw a ref
+  submit              // field validation trigger
 }) {
   const [error, setError] = useState(false)
-  const [fieldValue, setFieldValue] = useState('')
+  const [fieldValue, setFieldValue] = useState(inputValue || '')
   const [errorText, setErrorText] = useState(defaultErrorText)
 
-  const isError = (value) => {
+  // обновляем начальные значения при перезапуске формы 
+  useEffect(() => {
+    setFieldValue(inputValue)
+    setErrorText(defaultErrorText)
+  }, [inputValue])
+  
+  const isError = value => {
     const res = validator(value)
-    if (res) {
-      setErrorText(res)
-      return setError(true)
-    }
-    return false
+    if (!res) return false
+    
+    setErrorText(res)
+    return setError(true)
   }
 
-  const checkInput = () => {        
-    if (required && fieldValue.length === 0) {
-      setErrorText(defaultErrorText)
-      return setError(true)
-    }
-    return isError(fieldValue)
+  const checkInput = () => {            
+    if (!(required && fieldValue.length === 0)) return isError(fieldValue)
+    setErrorText(defaultErrorText)
+    return setError(true)
   }
     
-  const handleChange = (event) => {
+  // триггерит валидацию инпута
+  useEffect(() => {
+    if (submit !== undefined) checkInput()
+  }, [submit])
+  
+  const handleChange = event => {
     setError(false)
     setFieldValue(event.target.value)
+    if (onChangeHandler) onChangeHandler(event)
   }
 
   return (
     <div>
       <input
+        ref={reff}
         type={fieldType}
-        value={fieldValue}
+        // value = {inputValue === undefined ? fieldValue : inputValue}
+        // value = {Boolean(inputValue) ? inputValue : fieldValue}
+        value = {inputValue || fieldValue}
         placeholder={placeholder}
-        onBlur={checkInput}
+        // onBlur={checkInput}  // если хотим проверку ввода при уходе фокуса с инпута
         onChange={handleChange}
       />
       <p style={{color: 'red'}}>{ error && errorText }</p>
@@ -55,7 +70,9 @@ SmartInput.propTypes = {
   placeholder: propTypes.string,
   fieldType: propTypes.string,
   validator: propTypes.func,
-  defaultErrorText: propTypes.string
+  defaultErrorText: propTypes.string,
+  inputValue: propTypes.string,
+  onChangeHandler: propTypes.func
 }
 
 SmartInput.defaultProps = {
@@ -63,5 +80,7 @@ SmartInput.defaultProps = {
   placeholder: '',
   fieldType: 'text',
   validator: () => false,
-  defaultErrorText: "Field is required"
+  defaultErrorText: "Field is required",
+  inputValue: undefined,
+  onChangeHandler: null
 }
