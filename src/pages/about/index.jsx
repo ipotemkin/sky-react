@@ -1,5 +1,7 @@
 import Navigation from "../../components/navigation";
 
+import '../../index.css'
+
 export default function About() {
   return (
     <>

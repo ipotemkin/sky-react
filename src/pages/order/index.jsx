@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-import booksStub from "../BooksStub";
-import OrderDetail from "./OrderDetail";
-import formatAmount from "../Utils";
+import booksStub from "../../BooksStub";
+import OrderDetail from "../../components/OrderDetail";
+import formatAmount from "../../Utils";
+import Navigation from "../../components/navigation";
 
 export default function Order() {
   const [books, setBooks] = useState(booksStub())
@@ -34,7 +35,8 @@ export default function Order() {
   const totalRest = formatAmount(calcTotal('rest'))
 
   return (
-    <div>
+    <>
+      <Navigation />
       <div className="order">
         {books.map(book => {
           const { title, price, rest, quantity } = book;
@@ -52,6 +54,6 @@ export default function Order() {
       <p className="left">Total Quantity: <b>{totalQuantity}</b></p>
       <br />
       <p className="left">Total Price: <b>{totalPrice} / {totalRest}</b></p>
-    </div>
+    </>
   )
 }

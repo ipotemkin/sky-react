@@ -2,6 +2,7 @@
 
 import propTypes from 'prop-types'
 import '../index.css'
+import Navigation from './navigation'
 
 
 // проверка на простое число
@@ -46,9 +47,12 @@ export default function NumberGenerator({ start, end, size, width }) {
   for (let i = start; i <= end; i++) data.push(i)
  
   return (
-    <div className='number-generator-board' style={{ width: (width + 1) * size }}>
-      {data.map(item => <SmartCell value={item} size={size} key={item}/>)}
-    </div>
+    <>
+      <Navigation />
+      <div className='number-generator-board' style={{ width: (width + 1) * size }}>
+        {data.map(item => <SmartCell value={item} size={size} key={item}/>)}
+      </div>
+    </>
   )
 }
 

@@ -24,9 +24,9 @@ export default function OrderDetail({ title, price, rest, quantity, onChange }) 
     
   return (
     <div className='book-card'>
-      <h2>{title}</h2>
-      <p className='start'>Price: {formatAmount(price)} / {rest}</p>
-      <p className='start'>Quantity: {curCount}</p>
+      <h2 style={{color: 'black'}}>{title}</h2>
+      <p style={{color: 'black'}} className='start'>Price: {formatAmount(price)} / {rest}</p>
+      <p style={{color: 'black'}} className='start'>Quantity: {curCount}</p>
       <div className='btn-container'>
         <button className="btn danger" type="button" onClick={decr}>-</button>
         <button className="btn primary" type="button" onClick={incr}>+</button>
