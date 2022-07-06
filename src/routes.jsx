@@ -1,5 +1,5 @@
 import { Routes as ReactRoutes, Route } from 'react-router-dom'
-import HexColors from './components/HexColors'
+import HexColors from './components/hex_colors/HexColors'
 import LoginPassword from './components/LoginPassword'
 import NumberGenerator from './components/NumberGenerator'
 import FunnySelect from './components/FunnySelect'

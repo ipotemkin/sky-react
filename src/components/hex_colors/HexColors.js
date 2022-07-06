@@ -1,24 +1,12 @@
 import { useState } from 'react'
 
-import ColorsBoard from './ColorsBoard'
+import ColorsBoard from '../ColorsBoard'
+import genColors from './helpers'
 
-import '../index.css'
-import Navigation from './navigation'
+import '../../index.css'
+import Navigation from '../navigation'
 
 const COLOR_COUNT = 27
-
-function getRandomColor() {
-  const hexValueStr = (`00000${(Math.random()*0x1000000**0).toString(16)}`).slice(-6)
-  return `#${hexValueStr}`
-}
-  
-function genColors(count) {
-  const data = []
-  for ( let i = 0; i < count; i += 1) {
-    data.push(getRandomColor())
-  }
-  return data
-}
 
 
 export default function HexColors() {

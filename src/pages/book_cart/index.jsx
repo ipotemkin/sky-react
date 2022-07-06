@@ -24,21 +24,9 @@ export default function BookCart() {
 
   const removeBook = (id) => setBooks(books.filter(item => item.id !== id))
 
-  const calcTotal = () => {
-    let total = 0
-    books.forEach(element => {
-        total += element.price * element.quantity
-    })
-    return total
-  }
-
-  const calcTotalCount = () => {
-    let total = 0
-    books.forEach(element => {
-        total += element.quantity
-    })
-    return total
-  }
+  const calcTotal = () => books.reduce((sum, current) => (sum + current.price * current.quantity), 0)
+  
+  const calcTotalCount = () => books.reduce((sum, current) => (sum + current.quantity), 0)
 
   return (
     <>

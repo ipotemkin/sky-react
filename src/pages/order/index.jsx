@@ -8,22 +8,10 @@ import Navigation from "../../components/navigation";
 export default function Order() {
   const [books, setBooks] = useState(booksStub())
   
-  const calcTotal = (field) => {
-    let total = 0
-    books.forEach(element => {
-        total += element[field]
-    })
-    return total
-  }
+  const calcTotal = (field) => books.reduce((sum, current) => sum + current[field], 0)
   
-  const calcTotalAmount = () => {
-    let total = 0
-    books.forEach(element => {
-        total += element.price * element.quantity
-    })
-    return total
-  }
-
+  const calcTotalAmount = () => books.reduce((sum, current) => sum + current.price * current.quantity, 0)
+  
   const setQuantity = (id, quantity) => {
     setBooks(
       books.map((book) => (book.id !== id ? book : { ...book, quantity }))
