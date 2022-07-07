@@ -6,6 +6,7 @@ import SmartInput from "./SmartInput"
 import { validatorEmail, validatorPassword } from '../Utils'
 
 import '../index.css'
+import Navigation from "./navigation"
 
 
 export default function LoginPassword() {
@@ -63,51 +64,54 @@ export default function LoginPassword() {
       }
     }
         
-    return (        
-    <form>
-      <label>
-        Логин:
-        <SmartInput
-          reff={loginRef}
-          required
-          validator={validatorEmail}
-          onChangeHandler={onChangeHandler}
-          inputValue={login}
-          submit={submit}
-        />
-      </label>
-      <br />
-      <label>
-        Пароль:
-        <SmartInput
-          reff={passwordRef}
-          required
-          fieldType='password'
-          validator={validatorPassword}
-          onChangeHandler={onChangeHandler}
-          inputValue={password}
-          submit={submit}
-        />
-      </label>
-      <br />
-      <button
-        className="btn primary small"
-        type="submit"
-        onClick={onSubmit}
-        onBlur={() => setResultIsShown(false)}
-        ref={submitRef}
-      >
-        Ввод
-      </button>
-      <br />
-      <br />
-      {
-        resultIsShown &&
-        <div>
-          <p>Login: {validatedData.login}</p>
-          <p>Password: {validatedData.password}</p>
-        </div>
-      }
-    </form>
+    return (
+      <>
+        <Navigation />
+        <form>
+          <label>
+            Логин:
+            <SmartInput
+              reff={loginRef}
+              required
+              validator={validatorEmail}
+              onChangeHandler={onChangeHandler}
+              inputValue={login}
+              submit={submit}
+            />
+          </label>
+          <br />
+          <label>
+            Пароль:
+            <SmartInput
+              reff={passwordRef}
+              required
+              fieldType='password'
+              validator={validatorPassword}
+              onChangeHandler={onChangeHandler}
+              inputValue={password}
+              submit={submit}
+            />
+          </label>
+          <br />
+          <button
+            className="btn primary small"
+            type="submit"
+            onClick={onSubmit}
+            onBlur={() => setResultIsShown(false)}
+            ref={submitRef}
+          >
+            Ввод
+          </button>
+          <br />
+          <br />
+          {
+            resultIsShown &&
+            <div>
+              <p>Login: {validatedData.login}</p>
+              <p>Password: {validatedData.password}</p>
+            </div>
+          }
+        </form>
+      </>
     )
 }

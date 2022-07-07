@@ -1,3 +1,8 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -19,13 +24,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .App-link {
   color: #61dafb;
+  text-decoration: none;
+}
+
+.App-link.active {
+  text-decoration: underline;
 }
 
 @keyframes App-logo-spin {

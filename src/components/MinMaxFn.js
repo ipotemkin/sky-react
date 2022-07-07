@@ -20,13 +20,13 @@ export default function MinMaxFn({ min, max, current, onChange }) {
 
   return (
     <div>
-      <button className="btn" type="button" onClick={decr}>-</button>
+      <button className="btn primary" type="button" onClick={decr}>-</button>
       <input type="text"
         value={ curCount }
         onChange={onChangeCount}
         className="input-number"
       />
-      <button className="btn" type="button" onClick={incr}>+</button>
+      <button className="btn primary" type="button" onClick={incr}>+</button>
     </div>
   )
 }
